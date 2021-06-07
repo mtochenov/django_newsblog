@@ -1,0 +1,32 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+    <aside>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'main/img/logo_3.svg' %}" alt="Logo">
+        </a>
+        <a href="{% url 'home' %}" class="logo">News Blog</a>
+<!--        <span class="logo">News Blog</span>-->
+        <h3>Навигация</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li><i class="fas fa-home"></i> Главная</li></a>
+            <a href="{% url 'about' %}"><li><i class="fas fa-book-open"></i> О себе</li></a>
+            <a href="{% url 'news_home' %}"><li><i class="fas fa-newspaper"></i> Новости</li></a>
+            <a href="{% url 'contacts' %}"><li><i class="fab fa-telegram-plane"></i> Контакты</li></a><br>
+            <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Добавить новость</button></li></a>
+        </ul>
+    </aside>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

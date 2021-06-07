@@ -1,0 +1,19 @@
+{% extends "main/layout.html" %}
+
+{% block title %}
+    Удаление новости
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Удаление новости</h1><br>
+            <h1>{{ article.title }}</h1>
+            <p>{{ article.announce }}</p><br>
+            <p>Вы точно хотите удалить эту новость?</p>
+            <button class="btn btn-danger" type="submit">Да, удалить</button>
+            <a href="{% url 'news_home' %}" class="btn btn-info">Не удалять</a>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "main/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <p>Этот сайт-блог создан в учебных целях</p>
+        <p>На сайте реализован функционал добавления и редактирования статей с использованием стандартных инструметов Django</p><dr>
+        <p>Можете смело добавить свою новость или отредактировать имеющиеся</p>
+        <a href="news/" class="btn btn-info" role="button" aria-disabled="true">Узнать полседние новости</a>
+    </div>
+{% endblock %}

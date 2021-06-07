@@ -1,0 +1,97 @@
+body {
+    background: #383838;
+}
+
+aside {
+    position: fixed;
+    /* фиксируем боковой блок, чтобы он не "заканчивался" при прокрутке основной страницы */
+    float: left;
+    background: #181818;
+    width: 25%;
+    padding: 2.5%;
+    min-height: 100vh;
+    color: #fff;
+    border-right: 5px solid #000000;
+}
+
+aside img {
+    width: 80px;
+    float: left;
+}
+
+aside .logo {
+    font-size: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: -5px;
+    color: #fff;
+    text-decoration: none;
+}
+
+aside h3 {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+aside ul {list-style: none;}
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+    transition: transform .6s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color:rgb(30, 150, 172);
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main .features {
+    float: right;
+    color: #fff;
+    margin-top: 60px;
+    text-align: center;
+    width: 75%;
+}
+
+main .features h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+main .features p {
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+main .features .article {
+    text-align: justify;
+}
+
+main .features .mail {
+    text-decoration: none;
+}
+
+main .features .mail img{
+    width: 80px;
+}
+
+.alert-warning {
+    float: laft;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: center;
+    background: #181818;
+    border-color: #181818;
+    color: #fff;
+}
+
+form {
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 30px;
+}
