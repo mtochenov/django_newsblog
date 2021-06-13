@@ -95,3 +95,22 @@ form {
     width: 500px;
     margin-top: 30px;
 }
+
+div .weather_block {
+    /* float: right;
+    max-width: 400px;
+    max-height: 200px; */
+    float: center;
+    background: #181818;
+    border-color: #181818;
+}
+/* 
+div .left_block {
+    float: left;
+    width: 160px;
+}
+
+div .right_block {
+    float: right;
+    width: 160px;
+} */
