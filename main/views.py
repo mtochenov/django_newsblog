@@ -3,6 +3,7 @@ import requests
 
 
 def index(request):
+    """ Отображение шаблона главной страницы """
     data = {
         'title': 'Главная страница',
     }
@@ -29,11 +30,12 @@ def weather(request):
     appid = "8bfe1216baff61f145a193def0c5b772"
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
 
-    city = "Moscow,ru"  # Moscow,ru id - 524901
+    city = "Moscow,ru"  # Moscow,ru; Saint Petersburg,ru  TODO: реализовать отображение нескольких городов
+
     res = requests.get(url.format(city)).json()
 
     city_info = {
-        'city': city,  # TODO: реализовать отображение нескольких городов через цикл
+        'city': city,
         'temp': round(res['main']['temp'], 1),
         'pressure': round(((res['main']['pressure']) * 0.750063), 1),
         'wind': res['wind']['speed'],
