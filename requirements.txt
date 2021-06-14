@@ -9,3 +9,4 @@ sqlparse==0.4.1
 style==1.1.0
 update==0.0.1
 virtualenv==20.4.6
+requests==2.25.1
