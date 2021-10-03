@@ -10,13 +10,15 @@
 
         <div class="alert alert-warning">
             <div class="weather_block">
-                <b>Город:</b> Москва<br>
+                <b>Город:</b> {{ info.city_name }}<br>
                 <b>Температура:</b> {{ info.temp }}<sup> o</sup><a>C</a><br>
                 <b>Давление:</b> {{ info.pressure }}<a> мм рт.ст</a><br>
                 <b>Скорость ветра:</b> {{ info.wind }}<a> м/с</a><br>
                 <img src="https://openweathermap.org/img/w/{{ info.icon }}.png" alt="weathet-img">
             </div>
         </div>
+
+
 
     </div>
 {% endblock %}

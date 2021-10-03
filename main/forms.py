@@ -1,35 +1,5 @@
-from django.shortcuts import render
 import requests
 import random
-from .forms import Weather
-
-
-def index(request):
-    """ Отображение шаблона главной страницы """
-    data = {
-        'title': 'Главная страница',
-    }
-
-    return render(request, 'main/index.html', data)
-
-
-def about(request):
-    data = {
-        'title': 'О себе',
-    }
-    return render(request, 'main/about.html', data)
-
-
-def contacts(request):
-    return render(request, 'main/contacts.html')
-
-
-# def weather(request):  TODO: Доработать отображение погоды, сделать город, в котором указывается погода, объектом
-#     data = {
-#         'info': Weather.city_info,
-#         'title': 'Погода',
-#     }
-#     return render(request, "main/weather.html", data)
 
 
 def change_city():
@@ -62,11 +32,7 @@ def translate_city_name(city):
     return city_name
 
 
-def weather(request):
-    """
-    Получает данные о погоде с сейта openweathermap.org/ Данные по бесплатному тарифу.
-    Данные обрабатываются в формате json.
-    """
+class Weather:
     appid = "8bfe1216baff61f145a193def0c5b772"
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
 
@@ -83,10 +49,3 @@ def weather(request):
         'wind': res['wind']['speed'],
         'icon': res['weather'][0]['icon'],
     }
-
-    data = {
-        'info': city_info,
-        'title': 'Погода',
-    }
-
-    return render(request, "main/weather.html", data)
