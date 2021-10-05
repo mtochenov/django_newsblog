@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Articles
 from .forms import ArticlesForm
-from django.views.generic import DetailView, UpdateView, DeleteView
+from django.views.generic import DetailView, UpdateView, DeleteView, ListView
 
 
 class NewsDetailView(DetailView):
@@ -23,15 +23,6 @@ class NewsDeleteView(DeleteView):
     context_object_name = 'article'
 
 
-def news_home(request):
-    news = Articles.objects.order_by('-id')
-    data = {
-        'title': 'Новости',
-        'news': news
-    }
-    return render(request, 'news/news_home.html', data)
-
-
 def news_create(request):
     error = ''
     if request.method == 'POST':
@@ -49,3 +40,20 @@ def news_create(request):
         'error': error,
     }
     return render(request, 'news/create.html', data)
+
+
+class NewsListView(ListView):
+    model = Articles
+    paginate_by = 2
+    template_name = 'news/news_home.html'
+    context_object_name = 'articles'
+    ordering = ['-id']
+
+
+# def news_home(request):
+#     news = Articles.objects.order_by('-id')
+#     data = {
+#         'title': 'Новости',
+#         'news': news
+#     }
+#     return render(request, 'news/news_home.html', data)

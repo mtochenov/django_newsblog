@@ -24,14 +24,6 @@ def contacts(request):
     return render(request, 'main/contacts.html')
 
 
-# def weather(request):  TODO: Доработать отображение погоды, сделать город, в котором указывается погода, объектом
-#     data = {
-#         'info': Weather.city_info,
-#         'title': 'Погода',
-#     }
-#     return render(request, "main/weather.html", data)
-
-
 def change_city():
     """This func choices random city from list for weather func and return exact city"""
     cities_list = [

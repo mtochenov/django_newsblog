@@ -1,5 +1,7 @@
 import requests
 import random
+from django.forms import ModelForm
+from news_blog.main.models import Weather
 
 
 def change_city():
@@ -32,9 +34,13 @@ def translate_city_name(city):
     return city_name
 
 
-class Weather:
+class WeatherForm(ModelForm):
     appid = "8bfe1216baff61f145a193def0c5b772"
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
+
+    # class Meta:
+    model = Weather
+    fields = ['city']
 
     city = change_city()
     city_name = translate_city_name(city)
