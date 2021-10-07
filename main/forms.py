@@ -1,7 +1,4 @@
-import requests
 import random
-from django.forms import ModelForm
-from news_blog.main.models import Weather
 
 
 def change_city():
@@ -32,26 +29,3 @@ def translate_city_name(city):
     }
     city_name = en_ru_names[city]
     return city_name
-
-
-class WeatherForm(ModelForm):
-    appid = "8bfe1216baff61f145a193def0c5b772"
-    url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
-
-    # class Meta:
-    model = Weather
-    fields = ['city']
-
-    city = change_city()
-    city_name = translate_city_name(city)
-
-    res = requests.get(url.format(city)).json()
-
-    city_info = {
-        'city': city,
-        'city_name': city_name,
-        'temp': round(res['main']['temp'], 1),
-        'pressure': round(((res['main']['pressure']) * 0.750063), 1),  # Переводим в мм ртутного столба
-        'wind': res['wind']['speed'],
-        'icon': res['weather'][0]['icon'],
-    }

@@ -50,7 +50,7 @@ class NewsListView(ListView):
     ordering = ['-id']
 
 
-# def news_home(request):
+# def news_home(request):  # Ранее новости выводились через эту функцию
 #     news = Articles.objects.order_by('-id')
 #     data = {
 #         'title': 'Новости',

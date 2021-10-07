@@ -1,7 +1,6 @@
 from django.shortcuts import render
 import requests
 import random
-from .forms import Weather
 
 
 def index(request):
@@ -24,24 +23,7 @@ def contacts(request):
     return render(request, 'main/contacts.html')
 
 
-def change_city():
-    """This func choices random city from list for weather func and return exact city"""
-    cities_list = [
-        "Moscow,RU",
-        "Velikiy Novgorod,RU",
-        "Nizhniy Novgorod,RU",
-        "Saint Petersburg,RU",
-        "Kyiv,UA",
-        "Minsk,BY",
-        "Tivat,ME",
-    ]
-    city = random.choice(cities_list)
-    return city
-
-
-def translate_city_name(city):
-    """This func translate city name from english to russian"""
-    en_ru_names = {
+cities_dict = {
         "Moscow,RU": "Московия",
         "Velikiy Novgorod,RU": "Великий Новгород",
         "Nizhniy Novgorod,RU": "Нижний Новгород",
@@ -50,8 +32,6 @@ def translate_city_name(city):
         "Minsk,BY": "Минск",
         "Tivat,ME": "Тиват, Черногория",
     }
-    city_name = en_ru_names[city]
-    return city_name
 
 
 def weather(request):
@@ -62,8 +42,8 @@ def weather(request):
     appid = "8bfe1216baff61f145a193def0c5b772"
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
 
-    city = change_city()
-    city_name = translate_city_name(city)
+    city = random.choice(list(cities_dict))
+    city_name = cities_dict[city]
 
     res = requests.get(url.format(city)).json()
 
