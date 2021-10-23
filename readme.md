@@ -1,1 +1,2 @@
 This project was made as training project. This is one of my first projects on django. All materials could be freely used for your own needs under any jurisdiction.
+For correct work add your own db and/ or make migrations.
