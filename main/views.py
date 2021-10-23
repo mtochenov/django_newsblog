@@ -1,6 +1,5 @@
 from django.shortcuts import render
 import requests
-import random
 
 
 def index(request):
@@ -24,25 +23,30 @@ def contacts(request):
 
 
 cities_dict = {
-        "Moscow,RU": "Московия",
-        "Velikiy Novgorod,RU": "Великий Новгород",
-        "Nizhniy Novgorod,RU": "Нижний Новгород",
-        "Saint Petersburg,RU": "Санкт-Петерсбург",
-        "Kyiv,UA": "Киев",
-        "Minsk,BY": "Минск",
-        "Tivat,ME": "Тиват, Черногория",
-    }
+    "Moscow,RU": "Москва",
+    "Velikiy Novgorod,RU": "Великий Новгород",
+    "Nizhniy Novgorod,RU": "Нижний Новгород",
+    "Saint Petersburg,RU": "Санкт-Петерсбург",
+    "Kyiv,UA": "Киев",
+    "Minsk,BY": "Минск",
+    "Tivat,ME": "Тиват, Черногория",
+}
 
 
 def weather(request):
     """
-    Получает данные о погоде с сейта openweathermap.org/ Данные по бесплатному тарифу.
+    Получает данные о погоде с сейта 'openweathermap.org' Данные по бесплатному тарифу.
     Данные обрабатываются в формате json.
     """
+    if request.method == "POST":
+        city = request.POST['location']
+
+    else:
+        city = "Moscow,RU"
+
     appid = "8bfe1216baff61f145a193def0c5b772"
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
 
-    city = random.choice(list(cities_dict))
     city_name = cities_dict[city]
 
     res = requests.get(url.format(city)).json()

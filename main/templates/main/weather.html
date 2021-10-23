@@ -14,12 +14,26 @@
                 <b>Температура:</b> {{ info.temp }}<sup> o</sup><a>C</a><br>
                 <b>Давление:</b> {{ info.pressure }}<a> мм рт.ст</a><br>
                 <b>Скорость ветра:</b> {{ info.wind }}<a> м/с</a><br>
-                <img src="https://openweathermap.org/img/w/{{ info.icon }}.png" alt="weathet-img">
+                <img src="https://openweathermap.org/img/w/{{ info.icon }}.png" alt="weather-img">
             </div>
-            <button class="btn btn-info" role="button" onclick="location.reload();">Погода где-то еще</button>
         </div>
 
-
+        <form method="post">
+            {% csrf_token %}
+            <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Другой город</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button type="submit" class="dropdown-item" name="location" value="Moscow,RU">Москва</button>
+                    <button type="submit" class="dropdown-item" name="location" value="Velikiy Novgorod,RU">Великий Новгород</button>
+                    <button type="submit" class="dropdown-item" name="location" value="Nizhniy Novgorod,RU">Нижний Новгород</button>
+                    <button type="submit" class="dropdown-item" name="location" value="Saint Petersburg,RU">Санкт-Петерсбург</button>
+                    <button type="submit" class="dropdown-item" name="location" value="Kyiv,UA">Киев</button>
+                    <button type="submit" class="dropdown-item" name="location" value="Minsk,BY">Минск</button>
+                    <button type="submit" class="dropdown-item" name="location" value="Tivat,ME">Тиват</button>
+                </div>
+            </div>
+        </form>
 
     </div>
 {% endblock %}

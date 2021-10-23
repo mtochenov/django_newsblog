@@ -80,10 +80,10 @@ main .features .mail img{
 }
 
 .alert-warning {
-    float: laft;
-    clear: both;
+    /*float: left;*/
+    /*clear: both;*/
     width: 400px;
-    margin: 20px 34%;
+    margin: 20px 33%;
     text-align: center;
     background: #181818;
     border-color: #181818;
@@ -100,4 +100,50 @@ div .weather_block {
     float: center;
     background: #181818;
     border-color: #181818;
+}
+
+/* пагинация в разделе новости */
+.pagination_block {
+    width: 400px;
+    margin: 20px 33%;
+    text-align: center;
+    color: #fff;
+    background: #383838;
+    border-color: #383838;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: black;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #17a2b8 !Important;
+    border: solid 1px #17a2b8 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #17a2b8 !Important;
+    border: solid 1px #17a2b8;
+}
+
+/* выпадающий список выбора города в разделе погода */
+.btn-group {
+    float: left;
+    clear: both;
+    margin: 20px 28%;
 }
