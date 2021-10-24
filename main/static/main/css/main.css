@@ -80,10 +80,9 @@ main .features .mail img{
 }
 
 .alert-warning {
-    /*float: left;*/
-    /*clear: both;*/
     width: 400px;
-    margin: 20px 33%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     background: #181818;
     border-color: #181818;
@@ -91,7 +90,8 @@ main .features .mail img{
 }
 
 form {
-    margin-left: 32%;
+    margin-left: auto;
+    margin-right: auto;
     width: 500px;
     margin-top: 30px;
 }
@@ -105,7 +105,9 @@ div .weather_block {
 /* пагинация в разделе новости */
 .pagination_block {
     width: 400px;
-    margin: 20px 33%;
+    /*margin: 20px 33%;*/
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     color: #fff;
     background: #383838;
@@ -143,7 +145,7 @@ div .weather_block {
 
 /* выпадающий список выбора города в разделе погода */
 .btn-group {
-    float: left;
     clear: both;
-    margin: 20px 28%;
+    margin-left: auto;
+    margin-right: auto;
 }
