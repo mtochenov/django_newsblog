@@ -13,7 +13,7 @@
             <p>{{ article.announce }}</p><br>
             <p>Вы точно хотите удалить эту новость?</p>
             <button class="btn btn-danger" type="submit">Да, удалить</button>
-            <a href="{% url 'news_home' %}" class="btn btn-info">Не удалять</a>
+            <a href="{% url 'news_list' %}" class="btn btn-info">Не удалять</a>
         </form>
     </div>
 {% endblock %}

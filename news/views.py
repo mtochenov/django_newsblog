@@ -4,22 +4,17 @@ from .forms import ArticlesForm
 from django.views.generic import DetailView, UpdateView, DeleteView, ListView
 
 
+class NewsListView(ListView):
+    model = Articles
+    paginate_by = 2
+    template_name = 'news/news_list.html'
+    context_object_name = 'articles'
+    ordering = ['-id']
+
+
 class NewsDetailView(DetailView):
     model = Articles
     template_name = 'news/news_details.html'
-    context_object_name = 'article'
-
-
-class NewsUpdateView(UpdateView):
-    model = Articles
-    template_name = 'news/create.html'
-    form_class = ArticlesForm
-
-
-class NewsDeleteView(DeleteView):
-    model = Articles
-    success_url = '/news/'
-    template_name = 'news/news_delete.html'
     context_object_name = 'article'
 
 
@@ -42,18 +37,14 @@ def news_create(request):
     return render(request, 'news/create.html', data)
 
 
-class NewsListView(ListView):
+class NewsUpdateView(UpdateView):
     model = Articles
-    paginate_by = 2
-    template_name = 'news/news_home.html'
-    context_object_name = 'articles'
-    ordering = ['-id']
+    template_name = 'news/create.html'
+    form_class = ArticlesForm
 
 
-# def news_home(request):  # Ранее новости выводились через эту функцию
-#     news = Articles.objects.order_by('-id')
-#     data = {
-#         'title': 'Новости',
-#         'news': news
-#     }
-#     return render(request, 'news/news_home.html', data)
+class NewsDeleteView(DeleteView):
+    model = Articles
+    success_url = '/news/'
+    template_name = 'news/news_delete.html'
+    context_object_name = 'article'

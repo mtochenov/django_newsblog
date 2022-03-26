@@ -11,7 +11,7 @@
         <p class="article">{{ article.full_text }}</p>
         <a href="{% url 'news_update' article.id %}" class="btn btn-info">Редактировать</a>
         <a href="{% url 'news_delete' article.id %}" class="btn btn-danger">Удалить</a>
-        <a href="{% url 'news_home' %}" class="btn btn-info">К другим новостям</a>
+        <a href="{% url 'news_list' %}" class="btn btn-info">К другим новостям</a>
         <p></p>
     </div>
 {% endblock %}

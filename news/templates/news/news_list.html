@@ -1,0 +1,27 @@
+{% extends "main/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Новости</h1>
+    {% if articles %}
+        {% for item in articles %}
+            <div class="alert alert-warning">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.announce }}</p>
+                <p class="article" >{{ item.full_text|truncatewords:50 }}</p>
+                <a href="{% url 'news_detail' item.id %}" class="btn btn-info">Прочитать</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>У нас нет новостей сейчас</p>
+    {% endif %}
+
+    {% block pagination %}
+        {% include 'news/pagination.html' %}
+    {% endblock %}
+</div>
+{% endblock %}
